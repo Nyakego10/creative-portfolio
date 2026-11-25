@@ -1,5 +1,10 @@
 
 import { useState } from "react";
+import "./App.css";
+import ProjectForm from "./components/ProjectForm";
+import ProjectSearch from "./components/ProjectSearch";
+import ProjectList from "./components/ProjectList";
+
 
 function App() {
   const [projects, setProjects] = useState([
@@ -19,7 +24,7 @@ function App() {
       id: 3,
       title: "Dictionary App",
       description: "An app that allows users to search for word meanings.",
-      category: "Javascript~/dev/mod3/creative-portfolioclea"
+      category: "JavaScript"
     }
   ]);
 
@@ -60,54 +65,24 @@ function App() {
       <main>
         <h2>My Projects</h2>
 
-        <input
-          type="text"
-          placeholder="Search projects..."
-          value={search}
-          onChange={(event) => setSearch(event.target.value)}
+        <ProjectSearch
+          search={search}
+          setSearch={setSearch}
         />
 
-        <div>
-          {filteredProjects.map(function(project) {
-            return (
-              <div key={project.id}>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <p>Category: {project.category}</p>
-              </div>
-            );
-          })}
-        </div>
+        <ProjectList projects={filteredProjects} />
 
         <h2>Add a New Project</h2>
 
-        <form onSubmit={addProject}>
-          <input
-            type="text"
-            placeholder="Project title"
-            value={title}
-            onChange={(event) => setTitle(event.target.value)}
-            required
-          />
-
-          <input
-            type="text"
-            placeholder="Project description"
-            value={description}
-            onChange={(event) => setDescription(event.target.value)}
-            required
-          />
-
-          <input
-            type="text"
-            placeholder="Project category"
-            value={category}
-            onChange={(event) => setCategory(event.target.value)}
-            required
-          />
-
-          <button type="submit">Add Project</button>
-        </form>
+        <ProjectForm
+          title={title}
+          setTitle={setTitle}
+          description={description}
+          setDescription={setDescription}
+          category={category}
+          setCategory={setCategory}
+          addProject={addProject}
+        />
       </main>
     </div>
   );

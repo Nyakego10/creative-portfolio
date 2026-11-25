@@ -1,26 +1,71 @@
 
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
 header {
   background-color: #1e293b;
   color: white;
   text-align: center;
-  padding: 30px;
+  padding: 50px 20px;
+}
+
+header h1 {
+  margin: 0 0 10px;
+  font-size: 2.2rem;
+}
+
+header p {
+  color: #cbd5e1;
+  margin: 0;
 }
 
 body {
-  margin: 0;
   background-color: #f1f5f9;
   font-family: Arial, sans-serif;
   color: #1e293b;
 }
 
 main {
-  max-width: 800px;
-  margin: 30px auto;
+  max-width: 1100px;
+  margin: 35px auto;
   padding: 20px;
 }
 
 h2 {
-  margin-top: 30px;
+  margin-top: 35px;
+  margin-bottom: 20px;
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.project-card {
+  background-color: white;
+  padding: 22px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+.project-card h3 {
+  margin-top: 0;
+  color: #1e293b;
+}
+
+.project-card p {
+  line-height: 1.6;
+  color: #475569;
 }
 
 input {
@@ -28,28 +73,76 @@ input {
   width: 100%;
   padding: 12px;
   margin: 10px 0;
-  box-sizing: border-box;
   border: 1px solid #cbd5e1;
-  border-radius: 5px;
+  border-radius: 6px;
+  font-size: 1rem;
 }
 
-main div div {
+input:focus {
+  outline: 2px solid #93c5fd;
+  border-color: #2563eb;
+}
+
+form {
   background-color: white;
-  padding: 15px;
-  margin: 15px 0;
-  border-radius: 5px;
+  padding: 25px;
+  border-radius: 10px;
   border: 1px solid #e2e8f0;
+  margin-top: 20px;
 }
 
 button {
   background-color: #2563eb;
   color: white;
-  padding: 12px 20px;
+  padding: 12px 22px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 button:hover {
   background-color: #1d4ed8;
+}
+
+@media (max-width: 768px) {
+  main {
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .project-list {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    padding: 35px 15px;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  header p {
+    font-size: 0.9rem;
+  }
+
+  main {
+    padding: 12px;
+  }
+
+  form {
+    padding: 15px;
+  }
+
+  button {
+    width: 100%;
+  }
 }
